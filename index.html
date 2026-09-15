@@ -3,46 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CathyHub Tools – Free Online Image Tools</title>
-<meta name="description" content="Free CathyHub online image tools to compress and resize JPG, PNG and WEBP images privately in your browser.">
+<title>CathyHub — Free Online Image Tools</title>
+<meta name="description" content="CathyHub offers free, fast and private online image tools to compress and resize JPG, PNG and WEBP images directly in your browser.">
+<meta name="keywords" content="CathyHub, image compressor, image resizer, online image tools, JPG, PNG, WEBP">
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#172033;background:linear-gradient(180deg,#eef4ff,#fff)}
-nav{height:68px;background:#fff;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;padding:0 7%;position:sticky;top:0}
-.brand{font-size:25px;font-weight:800;color:#2563eb;text-decoration:none}.brand span{color:#7c3aed}nav a{color:#334155;text-decoration:none;font-weight:700}
-.hero{text-align:center;padding:70px 20px 45px}.badge{display:inline-block;background:#e8efff;color:#3159c9;padding:9px 16px;border-radius:999px;font-weight:700}
-h1{font-size:48px;line-height:1.1;margin:20px auto 15px;max-width:800px}.hero p{max-width:680px;margin:auto;color:#64748b;font-size:18px;line-height:1.7}
-.tools{max-width:1050px;margin:20px auto 70px;padding:0 20px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:24px;padding:30px;box-shadow:0 15px 45px rgba(30,41,59,.08)}
-.icon{font-size:44px}.card h2{font-size:28px;margin:14px 0 8px}.card p{color:#64748b;line-height:1.65;min-height:78px}
-.features{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 25px}.features span{background:#f1f5f9;border-radius:999px;padding:7px 11px;font-size:13px;color:#475569}
-.btn{display:inline-block;text-decoration:none;color:#fff;background:linear-gradient(135deg,#2563eb,#7c3aed);padding:13px 22px;border-radius:12px;font-weight:800}
-.privacy{text-align:center;max-width:800px;margin:0 auto 65px;padding:0 20px}.privacy h2{font-size:30px}.privacy p{color:#64748b;line-height:1.7}
-footer{background:#111827;color:#cbd5e1;text-align:center;padding:28px 20px;font-size:14px}
-@media(max-width:700px){nav{padding:0 20px}h1{font-size:36px}.tools{grid-template-columns:1fr}.card p{min-height:auto}}
+:root{--blue:#2563eb;--purple:#7c3aed;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--bg:#f7f9ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:linear-gradient(180deg,#eef4ff 0%,#fff 48%,#f8fafc 100%)}
+nav{height:72px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 7%;position:sticky;top:0;z-index:20}
+.logo{font-size:27px;font-weight:900;text-decoration:none;color:var(--blue)}.logo span{color:var(--purple)}
+.navlinks{display:flex;gap:25px}.navlinks a{color:#334155;text-decoration:none;font-weight:700}
+.hero{text-align:center;padding:78px 20px 58px}
+.pill{display:inline-block;background:#e8efff;color:#3159c9;padding:9px 16px;border-radius:999px;font-weight:800;font-size:14px}
+h1{font-size:52px;line-height:1.08;margin:20px auto 16px;max-width:850px;letter-spacing:-1px}
+.hero p{max-width:700px;margin:auto;color:var(--muted);font-size:19px;line-height:1.7}
+.tools{max-width:1080px;margin:10px auto 75px;padding:0 20px;display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:32px;box-shadow:0 18px 50px rgba(30,41,59,.09);transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(30,41,59,.13)}
+.icon{width:66px;height:66px;border-radius:18px;display:grid;place-items:center;font-size:34px;background:#eef4ff}
+.card h2{font-size:30px;margin:18px 0 9px}.card p{color:var(--muted);line-height:1.7;min-height:82px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 26px}.tags span{background:#f1f5f9;color:#475569;padding:7px 11px;border-radius:999px;font-size:13px;font-weight:700}
+.btn{display:inline-block;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--blue),var(--purple));padding:14px 22px;border-radius:13px;font-weight:900}
+.about{max-width:900px;margin:0 auto 75px;padding:0 20px;text-align:center}.about h2{font-size:34px}.about p{color:var(--muted);line-height:1.8;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}.mini{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.mini strong{display:block;margin-bottom:7px}.mini span{color:var(--muted);font-size:14px}
+footer{background:#111827;color:#cbd5e1;text-align:center;padding:32px 20px;font-size:14px}footer .footerlinks{margin-top:10px}footer a{color:#fff;text-decoration:none;margin:0 8px}
+@media(max-width:750px){nav{padding:0 20px}.navlinks{gap:12px}.navlinks a:nth-child(n+2){display:none}.hero{padding-top:55px}h1{font-size:38px}.tools{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.card p{min-height:auto}}
 </style>
 </head>
 <body>
-<nav><a class="brand" href="/">Cathy<span>Hub</span></a><a href="#tools">Tools</a></nav>
+<nav>
+<a class="logo" href="#">Cathy<span>Hub</span></a>
+<div class="navlinks"><a href="#tools">Tools</a><a href="#about">About</a><a href="#privacy">Privacy</a></div>
+</nav>
+
 <section class="hero">
-<div class="badge">✨ Free • Fast • Private</div>
+<div class="pill">✨ Free • Fast • Private</div>
 <h1>Simple Image Tools for Everyone</h1>
-<p>Compress or resize your images in seconds. CathyHub tools work directly in your browser, so your images stay on your device.</p>
+<p>Compress, resize and prepare your images in seconds. CathyHub works directly in your browser, keeping your images on your device.</p>
 </section>
+
 <section class="tools" id="tools">
 <article class="card">
-<div class="icon">🗜️</div><h2>Image Compressor</h2>
-<p>Reduce JPG, PNG and WEBP file sizes while keeping your images looking great. Choose target sizes from 100 KB up to 5 MB.</p>
-<div class="features"><span>JPG</span><span>PNG</span><span>WEBP</span><span>Target Size</span><span>Multiple Images</span></div>
+<div class="icon">🗜️</div>
+<h2>Image Compressor</h2>
+<p>Reduce image file size while keeping great quality. Supports JPG, PNG and WEBP, with convenient target-size options.</p>
+<div class="tags"><span>JPG</span><span>PNG</span><span>WEBP</span><span>100 KB–5 MB</span><span>Multiple Images</span></div>
 <a class="btn" href="https://compressor.cathyhub.shop">Open Compressor →</a>
 </article>
+
 <article class="card">
-<div class="icon">📐</div><h2>Image Resizer</h2>
-<p>Resize one or many images with custom width and height. Keep the aspect ratio or use exact dimensions with useful presets.</p>
-<div class="features"><span>JPG</span><span>PNG</span><span>WEBP</span><span>Aspect Ratio</span><span>Presets</span></div>
+<div class="icon">📐</div>
+<h2>Image Resizer</h2>
+<p>Resize one or many images with custom dimensions, aspect-ratio control and useful presets for common image sizes.</p>
+<div class="tags"><span>JPG</span><span>PNG</span><span>WEBP</span><span>Aspect Ratio</span><span>Presets</span></div>
 <a class="btn" href="https://resizer.cathyhub.shop">Open Resizer →</a>
 </article>
 </section>
-<section class="privacy"><h2>🔒 Your Images Stay Private</h2><p>CathyHub's image tools process images directly in your browser. Your images do not need to be uploaded to a server for compression or resizing.</p></section>
-<footer>© 2026 CathyHub • Free online image tools</footer>
+
+<section class="about" id="about">
+<h2>Why CathyHub?</h2>
+<p>Built to make everyday image tasks simple. No complicated software, no unnecessary uploads—just open a tool and get the job done.</p>
+<div class="grid">
+<div class="mini"><strong>⚡ Fast</strong><span>Process images directly in your browser.</span></div>
+<div class="mini" id="privacy"><strong>🔒 Private</strong><span>Your images can stay on your device.</span></div>
+<div class="mini"><strong>📱 Mobile Ready</strong><span>Works on phones, tablets and computers.</span></div>
+</div>
+</section>
+
+<footer>
+© 2026 CathyHub • Free online image tools
+<div class="footerlinks"><a href="#tools">Tools</a><a href="#about">About</a><a href="#privacy">Privacy</a></div>
+</footer>
 </body>
 </html>
