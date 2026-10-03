@@ -1,78 +1,443 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>CathyHub — Free Online Image Tools</title>
-<meta name="description" content="CathyHub offers free, fast and private online image tools to compress and resize JPG, PNG and WEBP images directly in your browser.">
-<meta name="keywords" content="CathyHub, image compressor, image resizer, online image tools, JPG, PNG, WEBP">
+
+<meta name="description" content="CathyHub offers free, fast and private online image tools to compress, resize, crop, convert images and convert JPG or PNG to PDF directly in your browser.">
+
+<meta name="keywords" content="CathyHub, image compressor, image resizer, image cropper, image converter, image to PDF, JPG to PDF, PNG to PDF, online image tools">
+
 <style>
 :root{--blue:#2563eb;--purple:#7c3aed;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--bg:#f7f9ff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:linear-gradient(180deg,#eef4ff 0%,#fff 48%,#f8fafc 100%)}
-nav{height:72px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 7%;position:sticky;top:0;z-index:20}
-.logo{font-size:27px;font-weight:900;text-decoration:none;color:var(--blue)}.logo span{color:var(--purple)}
-.navlinks{display:flex;gap:25px}.navlinks a{color:#334155;text-decoration:none;font-weight:700}
-.hero{text-align:center;padding:78px 20px 58px}
-.pill{display:inline-block;background:#e8efff;color:#3159c9;padding:9px 16px;border-radius:999px;font-weight:800;font-size:14px}
-h1{font-size:52px;line-height:1.08;margin:20px auto 16px;max-width:850px;letter-spacing:-1px}
-.hero p{max-width:700px;margin:auto;color:var(--muted);font-size:19px;line-height:1.7}
-.tools{max-width:1080px;margin:10px auto 75px;padding:0 20px;display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
-.card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:32px;box-shadow:0 18px 50px rgba(30,41,59,.09);transition:.2s}
-.card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(30,41,59,.13)}
-.icon{width:66px;height:66px;border-radius:18px;display:grid;place-items:center;font-size:34px;background:#eef4ff}
-.card h2{font-size:30px;margin:18px 0 9px}.card p{color:var(--muted);line-height:1.7;min-height:82px}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 26px}.tags span{background:#f1f5f9;color:#475569;padding:7px 11px;border-radius:999px;font-size:13px;font-weight:700}
-.btn{display:inline-block;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--blue),var(--purple));padding:14px 22px;border-radius:13px;font-weight:900}
-.about{max-width:900px;margin:0 auto 75px;padding:0 20px;text-align:center}.about h2{font-size:34px}.about p{color:var(--muted);line-height:1.8;font-size:17px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}.mini{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.mini strong{display:block;margin-bottom:7px}.mini span{color:var(--muted);font-size:14px}
-footer{background:#111827;color:#cbd5e1;text-align:center;padding:32px 20px;font-size:14px}footer .footerlinks{margin-top:10px}footer a{color:#fff;text-decoration:none;margin:0 8px}
-@media(max-width:750px){nav{padding:0 20px}.navlinks{gap:12px}.navlinks a:nth-child(n+2){display:none}.hero{padding-top:55px}h1{font-size:38px}.tools{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.card p{min-height:auto}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+color:var(--ink);
+background:linear-gradient(180deg,#eef4ff 0%,#fff 48%,#f8fafc 100%)
+}
+
+nav{
+height:72px;
+background:rgba(255,255,255,.96);
+border-bottom:1px solid var(--line);
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 7%;
+position:sticky;
+top:0;
+z-index:20
+}
+
+.logo{
+font-size:27px;
+font-weight:900;
+text-decoration:none;
+color:var(--blue)
+}
+
+.logo span{color:var(--purple)}
+
+.navlinks{
+display:flex;
+gap:25px
+}
+
+.navlinks a{
+color:#334155;
+text-decoration:none;
+font-weight:700
+}
+
+.hero{
+text-align:center;
+padding:78px 20px 58px
+}
+
+.pill{
+display:inline-block;
+background:#e8efff;
+color:#3159c9;
+padding:9px 16px;
+border-radius:999px;
+font-weight:800;
+font-size:14px
+}
+
+h1{
+font-size:52px;
+line-height:1.08;
+margin:20px auto 16px;
+max-width:850px;
+letter-spacing:-1px
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+color:var(--muted);
+font-size:19px;
+line-height:1.7
+}
+
+.tools{
+max-width:1080px;
+margin:10px auto 75px;
+padding:0 20px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:26px
+}
+
+.card{
+background:#fff;
+border:1px solid var(--line);
+border-radius:26px;
+padding:32px;
+box-shadow:0 18px 50px rgba(30,41,59,.09);
+transition:.2s
+}
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 24px 60px rgba(30,41,59,.13)
+}
+
+.icon{
+width:66px;
+height:66px;
+border-radius:18px;
+display:grid;
+place-items:center;
+font-size:34px;
+background:#eef4ff
+}
+
+.card h2{
+font-size:30px;
+margin:18px 0 9px
+}
+
+.card p{
+color:var(--muted);
+line-height:1.7;
+min-height:82px
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin:20px 0 26px
+}
+
+.tags span{
+background:#f1f5f9;
+color:#475569;
+padding:7px 11px;
+border-radius:999px;
+font-size:13px;
+font-weight:700
+}
+
+.btn{
+display:inline-block;
+text-decoration:none;
+color:#fff;
+background:linear-gradient(135deg,var(--blue),var(--purple));
+padding:14px 22px;
+border-radius:13px;
+font-weight:900
+}
+
+.about{
+max-width:900px;
+margin:0 auto 75px;
+padding:0 20px;
+text-align:center
+}
+
+.about h2{
+font-size:34px
+}
+
+.about p{
+color:var(--muted);
+line-height:1.8;
+font-size:17px
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px;
+margin-top:28px
+}
+
+.mini{
+background:#fff;
+border:1px solid var(--line);
+border-radius:18px;
+padding:20px
+}
+
+.mini strong{
+display:block;
+margin-bottom:7px
+}
+
+.mini span{
+color:var(--muted);
+font-size:14px
+}
+
+footer{
+background:#111827;
+color:#cbd5e1;
+text-align:center;
+padding:32px 20px;
+font-size:14px
+}
+
+footer .footerlinks{
+margin-top:10px
+}
+
+footer a{
+color:#fff;
+text-decoration:none;
+margin:0 8px
+}
+
+@media(max-width:750px){
+nav{padding:0 20px}
+.navlinks{gap:12px}
+.navlinks a:nth-child(n+2){display:none}
+.hero{padding-top:55px}
+h1{font-size:38px}
+.tools{grid-template-columns:1fr}
+.grid{grid-template-columns:1fr}
+.card p{min-height:auto}
+}
 </style>
 </head>
+
 <body>
+
 <nav>
 <a class="logo" href="#">Cathy<span>Hub</span></a>
-<div class="navlinks"><a href="#tools">Tools</a><a href="#about">About</a><a href="#privacy">Privacy</a></div>
+
+<div class="navlinks">
+<a href="#tools">Tools</a>
+<a href="#about">About</a>
+<a href="#privacy">Privacy</a>
+</div>
 </nav>
 
 <section class="hero">
+
 <div class="pill">✨ Free • Fast • Private</div>
-<h1>Simple Image Tools for Everyone</h1>
-<p>Compress, resize and prepare your images in seconds. CathyHub works directly in your browser, keeping your images on your device.</p>
+
+<h1>Free Online Image Tools for Everyone</h1>
+
+<p>
+Compress, resize, crop, convert images and create PDF files in seconds.
+CathyHub works directly in your browser, keeping your images on your device.
+</p>
+
 </section>
+
 
 <section class="tools" id="tools">
+
+<!-- Image Compressor -->
 <article class="card">
+
 <div class="icon">🗜️</div>
+
 <h2>Image Compressor</h2>
-<p>Reduce image file size while keeping great quality. Supports JPG, PNG and WEBP, with convenient target-size options.</p>
-<div class="tags"><span>JPG</span><span>PNG</span><span>WEBP</span><span>100 KB–5 MB</span><span>Multiple Images</span></div>
-<a class="btn" href="https://compressor.cathyhub.shop">Open Compressor →</a>
+
+<p>
+Reduce image file size while keeping great quality.
+Supports JPG, PNG and WEBP, with convenient target-size options.
+</p>
+
+<div class="tags">
+<span>JPG</span>
+<span>PNG</span>
+<span>WEBP</span>
+<span>100 KB–5 MB</span>
+<span>Multiple Images</span>
+</div>
+
+<a class="btn" href="https://compressor.cathyhub.shop">
+Open Compressor →
+</a>
+
 </article>
 
+
+<!-- Image Resizer -->
 <article class="card">
+
 <div class="icon">📐</div>
+
 <h2>Image Resizer</h2>
-<p>Resize one or many images with custom dimensions, aspect-ratio control and useful presets for common image sizes.</p>
-<div class="tags"><span>JPG</span><span>PNG</span><span>WEBP</span><span>Aspect Ratio</span><span>Presets</span></div>
-<a class="btn" href="https://resizer.cathyhub.shop">Open Resizer →</a>
+
+<p>
+Resize one or many images with custom dimensions,
+aspect-ratio control and useful presets for common image sizes.
+</p>
+
+<div class="tags">
+<span>JPG</span>
+<span>PNG</span>
+<span>WEBP</span>
+<span>Aspect Ratio</span>
+<span>Presets</span>
+</div>
+
+<a class="btn" href="https://resizer.cathyhub.shop">
+Open Resizer →
+</a>
+
 </article>
+
+
+<!-- Image Cropper -->
+<article class="card">
+
+<div class="icon">✂️</div>
+
+<h2>Image Cropper</h2>
+
+<p>
+Crop your images quickly with an easy-to-use online image cropper.
+Select the area you want and create the perfect image for your needs.
+</p>
+
+<div class="tags">
+<span>JPG</span>
+<span>PNG</span>
+<span>WEBP</span>
+<span>Custom Crop</span>
+<span>Easy</span>
+</div>
+
+<a class="btn" href="https://cropper.cathyhub.shop">
+Open Cropper →
+</a>
+
+</article>
+
+
+<!-- Image Converter -->
+<article class="card">
+
+<div class="icon">🔄</div>
+
+<h2>Image Converter</h2>
+
+<p>
+Convert images between popular formats such as JPG, PNG and WEBP
+directly in your browser without installing software.
+</p>
+
+<div class="tags">
+<span>JPG</span>
+<span>PNG</span>
+<span>WEBP</span>
+<span>Format Convert</span>
+<span>Fast</span>
+</div>
+
+<a class="btn" href="https://converter.cathyhub.shop">
+Open Converter →
+</a>
+
+</article>
+
+
+<!-- Image to PDF -->
+<article class="card">
+
+<div class="icon">📄</div>
+
+<h2>Image to PDF</h2>
+
+<p>
+Convert JPG and PNG images into PDF files directly in your browser.
+Create a PDF quickly while keeping your files on your device.
+</p>
+
+<div class="tags">
+<span>JPG</span>
+<span>PNG</span>
+<span>PDF</span>
+<span>Multiple Images</span>
+<span>Private</span>
+</div>
+
+<a class="btn" href="https://pdf.cathyhub.shop">
+Open Image to PDF →
+</a>
+
+</article>
+
 </section>
+
 
 <section class="about" id="about">
+
 <h2>Why CathyHub?</h2>
-<p>Built to make everyday image tasks simple. No complicated software, no unnecessary uploads—just open a tool and get the job done.</p>
+
+<p>
+Built to make everyday image tasks simple.
+No complicated software, no unnecessary uploads—just open a tool
+and get the job done.
+</p>
+
 <div class="grid">
-<div class="mini"><strong>⚡ Fast</strong><span>Process images directly in your browser.</span></div>
-<div class="mini" id="privacy"><strong>🔒 Private</strong><span>Your images can stay on your device.</span></div>
-<div class="mini"><strong>📱 Mobile Ready</strong><span>Works on phones, tablets and computers.</span></div>
+
+<div class="mini">
+<strong>⚡ Fast</strong>
+<span>Process images directly in your browser.</span>
 </div>
+
+<div class="mini" id="privacy">
+<strong>🔒 Private</strong>
+<span>Your images can stay on your device.</span>
+</div>
+
+<div class="mini">
+<strong>📱 Mobile Ready</strong>
+<span>Works on phones, tablets and computers.</span>
+</div>
+
+</div>
+
 </section>
 
+
 <footer>
+
 © 2026 CathyHub • Free online image tools
-<div class="footerlinks"><a href="#tools">Tools</a><a href="#about">About</a><a href="#privacy">Privacy</a></div>
+
+<div class="footerlinks">
+<a href="#tools">Tools</a>
+<a href="#about">About</a>
+<a href="#privacy">Privacy</a>
+</div>
+
 </footer>
+
 </body>
 </html>
+```
